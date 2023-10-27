@@ -1,9 +1,9 @@
 import React from "react";
 
-const Navbar = (props) => {
+const Navbar = () => {
     return (
-        <div className="Navbar  bg-light">
-            <nav class="navbar-dark navbar" style={{backgroundColor: `${props.color} !important`}}>
+        <div className="Navbar navbar-dark">
+            <nav style={{opacity: '0 !important'}} class="navbar-dark navbar">
                 <a class="navbar-brand ms-4" href="#">
                     <img
                         src="https://avatars.githubusercontent.com/u/110775856?v=4"

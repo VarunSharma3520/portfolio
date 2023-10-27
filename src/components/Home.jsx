@@ -6,7 +6,7 @@ import Navbar from "./Navbar.jsx";
 const Home = () => {
   return (
     <div className=''>
-      <Navbar color = 'black'/>
+      <Navbar />
       <h1 className='my-5 text-center'><b>I am <span><Typewriter
         words={['Varun Sharma','Front End Developer', 'Back End Developer', 'Data Analyst', 'Programming Enthusiast']}
         loop={0}
