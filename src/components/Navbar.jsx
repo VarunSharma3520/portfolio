@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = (props) => {
     return (
         <div className="Navbar  bg-light">
-            <nav class="navbar-dark navbar" style={{backgroundColor: `${props.color}!important`}}>
+            <nav class="navbar-dark navbar" style={{backgroundColor: `${props.color} !important`}}>
                 <a class="navbar-brand ms-4" href="#">
                     <img
                         src="https://avatars.githubusercontent.com/u/110775856?v=4"
