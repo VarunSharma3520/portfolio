@@ -19,7 +19,7 @@ const project = () => {
                   <br /><br />
                   <b className='card-heading'>Key Achievements:</b>
                   <br />
-                  <b className='card-heading'>Real-Time Weather Data:</b> Integrated with a weather API (e.g., from RapidAPI) to fetch real-time weather information, including temperature, humidity, wind speed, and conditions, allowing users to stay updated with accurate weather forecasts.
+                  <b className='card-heading'>Real-Time Weather Data:</b> Integrated with a weather API ( from RapidAPI) to fetch real-time weather information, including temperature, humidity, wind speed, and conditions, allowing users to stay updated with accurate weather forecasts.
                   <br />
                   
                   <b className='card-heading'>Detailed Weather Display:</b> Provided detailed weather information, including current conditions, hourly and daily forecasts, and extended weather data, ensuring comprehensive weather insights.
@@ -42,7 +42,7 @@ const project = () => {
                 <p class="card-text"><b className='card-heading'>
                   Description:</b><br />
 
-                  Developed a Google Clone web application using React, JavaScript, and CSS to replicate the core functionalities and user interface of the Google search engine. This project served as a hands-on exploration of modern web development techniques and allowed for the practical application of front-end technologies.
+                  Developed a Google Clone web application using React, JavaScript, and CSS to replicate the core functionalities and user interface of the Google search engine. This project served as a hands-on exploration of modern web development techniques and allowed for the practical application of front-end technologies. This project exactly resembles Google.
                   <br />
                   <a href="https://web3google.netlify.app/" class="m-3 btn btn-success">Go to Project</a>
                 <a href="https://github.com/VarunSharma3520/GoogleClone" class="mx-2 btn btn-light"><svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github">
