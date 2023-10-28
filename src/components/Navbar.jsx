@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <div className='Navabar'>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="bg-color-black navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="Navbar-opacity container-fluid">
                     <Link className="navbar-brand ms-4" to="/">
                         <img
@@ -21,11 +21,6 @@ const Navbar = () => {
                         </button>
                         <div class="collapse navbar-collapse" id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item ">
-                                    <Link className="nav-link active me-4" aria-current="page" to="/AboutMe">
-                                        <b>About Me</b>
-                                    </Link>
-                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link active me-4" aria-current="page" to="/Skill#">
                                         <b>Skills</b>
