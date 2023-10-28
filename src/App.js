@@ -14,17 +14,17 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
+          <Route path="/" element={<Home />}/>
             <Route path="Skill" element={<Skill />} />
             <Route path="Education" element={<Education />} />
             <Route path="WorkExperience" element={<WorkExperience />} />
             <Route path="AboutMe" element={<AboutMe />} />
             <Route path="SocialLink" element={<SocialLink />} />
-          </Route>
         </Routes>
     </BrowserRouter>
     </div>
   );
 }
+
 
 export default App;

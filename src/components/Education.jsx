@@ -1,11 +1,10 @@
 import React from 'react'
+import Navbar from "./Navbar";
 
 const Education = () => {
     return (
-        <div>
-      
-        </div>
-)
+        <Navbar/>
+    )
 };
 
 export default Education
