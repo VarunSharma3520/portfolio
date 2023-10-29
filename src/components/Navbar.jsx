@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <div className='Navabar'>
-            <nav ClassName="bg-color-black navbar navbar-expand-lg navbar-dark bg-dark">
-                <div ClassName="Navbar-opacity container-fluid">
+            <nav className="bg-color-black navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="Navbar-opacity container-fluid">
                     <Link className="navbar-brand ms-4" to="/">
                         <img
                             src="https://avatars.githubusercontent.com/u/110775856?v=4"
@@ -15,12 +15,12 @@ const Navbar = () => {
                             className="rounded-circle d-inline-block align-text-top me-2 mt-1"
                         />VS
                     </Link>
-                    <span ClassName="navbar-text">
-                        <button ClassName="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                            <span ClassName="navbar-toggler-icon"></span>
+                    <span className="navbar-text">
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div ClassName="collapse navbar-collapse" id="navbarText">
-                            <ul ClassName="navbar-nav me-auto mb-2 mb-lg-0">
+                        <div className="collapse navbar-collapse" id="navbarText">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <Link className="nav-link active me-4" aria-current="page" to="/Skill#">
                                         <b>Skills</b>
