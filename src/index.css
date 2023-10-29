@@ -17,6 +17,10 @@
     background-color: black !important;
 }
 
+.color-black{
+    color: rgb(67, 66, 66) !important;
+}
+
 .Navbar-opacity-0{
     opacity: 0 ;
 }
