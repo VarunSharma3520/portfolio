@@ -1,3 +1,5 @@
+# Getting Started with this Portfolio App
+Step-1: Download Zip Folder from Code>Local>Download ZIP or Click-Here[https://github.com/VarunSharma3520/portfolio/archive/refs/heads/master.zip] 
 # Paricle.js
 # iconicicon
 # bootstrap
