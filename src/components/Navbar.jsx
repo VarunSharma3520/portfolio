@@ -9,7 +9,7 @@ const Navbar = () => {
                 <div className="Navbar-opacity container-fluid">
                     <Link className="navbar-brand ms-4" to="/">
                         <img
-                            src="https://res.cloudinary.com/dlfuvp7oc/image/upload/v1700944323/Screenshot_2023-08-30_134145_mq4hue.png"
+                            src="https://res.cloudinary.com/dlfuvp7oc/image/upload/v1705546638/djsieqzgrp4irrfphs0l.png"
                             alt="Logo"
                             width="30"
                             height="24"
