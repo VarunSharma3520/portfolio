@@ -55,56 +55,56 @@ const PROJECTS = [
       { label: "npm Package", href: "https://www.npmjs.com/package/@ervarunsharma/webseee", icon: "npm" },
     ],
   },
-  {
-    id: "weather",
-    title: "Weather App",
-    subtitle: "Real-time Weather Dashboard",
-    accent: "#34D399",
-    glow: "rgba(52,211,153,0.15)",
-    tag: "Frontend",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/>
-      </svg>
-    ),
-    description: "Dynamic weather app with real-time data via RapidAPI — shows temperature, humidity, wind speed, hourly and daily forecasts with dynamic icons and unit customisation.",
-    achievements: [
-      "Real-time data: temperature, humidity, wind speed via RapidAPI",
-      "Hourly & daily forecast views with dynamic weather icons",
-      "Celsius / Fahrenheit toggle with local storage persistence",
-      "Fully responsive layout built with Bootstrap",
-    ],
-    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "RapidAPI"],
-    links: [
-      { label: "Live Demo", href: "https://weathervarun.netlify.app/", icon: "live" },
-      { label: "GitHub", href: "https://github.com/VarunSharma3520/weather", icon: "github" },
-    ],
-  },
-  {
-    id: "googleclone",
-    title: "Google Clone",
-    subtitle: "Search UI Replica",
-    accent: "#FBBF24",
-    glow: "rgba(251,191,36,0.15)",
-    tag: "React",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-      </svg>
-    ),
-    description: "Pixel-accurate Google UI clone built with React, integrating the Google Custom Search API with full state management and real-time results.",
-    achievements: [
-      "Pixel-accurate Google UI recreation in React",
-      "Google Custom Search API integration with live results",
-      "State management with React hooks",
-      "Deployed on Netlify with CI/CD",
-    ],
-    stack: ["React", "JavaScript", "CSS", "Google Search API", "Netlify"],
-    links: [
-      { label: "Live Demo", href: "https://web3google.netlify.app/", icon: "live" },
-      { label: "GitHub", href: "https://github.com/VarunSharma3520/GoogleClone", icon: "github" },
-    ],
-  },
+  // {
+  //   id: "weather",
+  //   title: "Weather App",
+  //   subtitle: "Real-time Weather Dashboard",
+  //   accent: "#34D399",
+  //   glow: "rgba(52,211,153,0.15)",
+  //   tag: "Frontend",
+  //   icon: (
+  //     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  //       <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/>
+  //     </svg>
+  //   ),
+  //   description: "Dynamic weather app with real-time data via RapidAPI — shows temperature, humidity, wind speed, hourly and daily forecasts with dynamic icons and unit customisation.",
+  //   achievements: [
+  //     "Real-time data: temperature, humidity, wind speed via RapidAPI",
+  //     "Hourly & daily forecast views with dynamic weather icons",
+  //     "Celsius / Fahrenheit toggle with local storage persistence",
+  //     "Fully responsive layout built with Bootstrap",
+  //   ],
+  //   stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "RapidAPI"],
+  //   links: [
+  //     { label: "Live Demo", href: "https://weathervarun.netlify.app/", icon: "live" },
+  //     { label: "GitHub", href: "https://github.com/VarunSharma3520/weather", icon: "github" },
+  //   ],
+  // },
+  // {
+  //   id: "googleclone",
+  //   title: "Google Clone",
+  //   subtitle: "Search UI Replica",
+  //   accent: "#FBBF24",
+  //   glow: "rgba(251,191,36,0.15)",
+  //   tag: "React",
+  //   icon: (
+  //     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  //       <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+  //     </svg>
+  //   ),
+  //   description: "Pixel-accurate Google UI clone built with React, integrating the Google Custom Search API with full state management and real-time results.",
+  //   achievements: [
+  //     "Pixel-accurate Google UI recreation in React",
+  //     "Google Custom Search API integration with live results",
+  //     "State management with React hooks",
+  //     "Deployed on Netlify with CI/CD",
+  //   ],
+  //   stack: ["React", "JavaScript", "CSS", "Google Search API", "Netlify"],
+  //   links: [
+  //     { label: "Live Demo", href: "https://web3google.netlify.app/", icon: "live" },
+  //     { label: "GitHub", href: "https://github.com/VarunSharma3520/GoogleClone", icon: "github" },
+  //   ],
+  // },
 ];
 
 /* ─────────────────────────────────────────────
