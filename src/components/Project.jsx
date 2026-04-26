@@ -1,73 +1,337 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
-const project = () => {
+
+/* ─────────────────────────────────────────────
+   DATA
+───────────────────────────────────────────── */
+const PROJECTS = [
+  {
+    id: "origino",
+    title: "Origino",
+    subtitle: "Enterprise E-commerce Platform",
+    accent: "#7C6FFF",
+    glow: "rgba(124,111,255,0.18)",
+    tag: "Enterprise",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+    ),
+    description: "Contributed to an enterprise-grade e-commerce platform with a full-featured storefront and a dedicated admin dashboard for inventory, orders, and analytics management.",
+    achievements: [
+      "Built and integrated scalable product catalogue and checkout flows",
+      "Developed admin panel with real-time order tracking and analytics",
+      "Implemented role-based access control for admin operations",
+      "Optimised API performance for high-traffic enterprise usage",
+    ],
+    stack: ["React", "Node.js", "MongoDB", "REST APIs", "Admin Dashboard"],
+    links: [
+      { label: "Live Store", href: "https://origino.shop/", icon: "store" },
+      { label: "Admin Panel", href: "https://admin.origino.shop/", icon: "admin" },
+    ],
+  },
+  {
+    id: "web3google",
+    title: "Web3 Google",
+    subtitle: "Custom Search Engine",
+    accent: "#38BDF8",
+    glow: "rgba(56,189,248,0.15)",
+    tag: "Search",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    ),
+    description: "Built a search engine from scratch — primary contribution was designing and implementing a custom ranking algorithm using open-source datasets, with web scraping for data collection.",
+    achievements: [
+      "Designed and implemented a custom PageRank-style ranking algorithm",
+      "Built data collection pipeline with web scraping + open-source datasets",
+      "Published an npm package (@ervarunsharma/websee) used by the engine",
+      "Deployed full search UI on Netlify with real-time result rendering",
+    ],
+    stack: ["React", "JavaScript", "Web Scraping", "Ranking Algorithm", "npm Package"],
+    links: [
+      { label: "Live Search", href: "https://web3google.netlify.app/", icon: "live" },
+      { label: "npm Package", href: "https://www.npmjs.com/package/@ervarunsharma/webseee", icon: "npm" },
+    ],
+  },
+  {
+    id: "weather",
+    title: "Weather App",
+    subtitle: "Real-time Weather Dashboard",
+    accent: "#34D399",
+    glow: "rgba(52,211,153,0.15)",
+    tag: "Frontend",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/>
+      </svg>
+    ),
+    description: "Dynamic weather app with real-time data via RapidAPI — shows temperature, humidity, wind speed, hourly and daily forecasts with dynamic icons and unit customisation.",
+    achievements: [
+      "Real-time data: temperature, humidity, wind speed via RapidAPI",
+      "Hourly & daily forecast views with dynamic weather icons",
+      "Celsius / Fahrenheit toggle with local storage persistence",
+      "Fully responsive layout built with Bootstrap",
+    ],
+    stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "RapidAPI"],
+    links: [
+      { label: "Live Demo", href: "https://weathervarun.netlify.app/", icon: "live" },
+      { label: "GitHub", href: "https://github.com/VarunSharma3520/weather", icon: "github" },
+    ],
+  },
+  {
+    id: "googleclone",
+    title: "Google Clone",
+    subtitle: "Search UI Replica",
+    accent: "#FBBF24",
+    glow: "rgba(251,191,36,0.15)",
+    tag: "React",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    ),
+    description: "Pixel-accurate Google UI clone built with React, integrating the Google Custom Search API with full state management and real-time results.",
+    achievements: [
+      "Pixel-accurate Google UI recreation in React",
+      "Google Custom Search API integration with live results",
+      "State management with React hooks",
+      "Deployed on Netlify with CI/CD",
+    ],
+    stack: ["React", "JavaScript", "CSS", "Google Search API", "Netlify"],
+    links: [
+      { label: "Live Demo", href: "https://web3google.netlify.app/", icon: "live" },
+      { label: "GitHub", href: "https://github.com/VarunSharma3520/GoogleClone", icon: "github" },
+    ],
+  },
+];
+
+/* ─────────────────────────────────────────────
+   LINK BUTTON
+───────────────────────────────────────────── */
+function LinkBtn({ href, label, accent }) {
   return (
-    <div className='Project'>
-      <Navbar />
-      <div className="container my-4">
-        <div className="row">
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-heading">Weather App</h5>
-                <p className="card-text"><b className='card-heading'>Description:</b><br />
-                  Developed a dynamic and informative Weather App using HTML, CSS, JavaScript, Bootstrap for responsive design, and integration with a weather API from RapidAPI to provide users with real-time weather forecasts and data. This project demonstrates proficiency in front-end web development, data integration, and utilization of external APIs.
-                  <br /><a href="https://weathervarun.netlify.app/" className="m-3 btn btn-success">Go to Project</a>
-                  <a href="https://github.com/VarunSharma3520/weather" className="mx-2 btn btn-light"><svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" className="octicon octicon-mark-github">
-                    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-                  </svg> Go to GitHuB</a>
-                  <br /><br />
-                  <b className='card-heading'>Key Achievements:</b>
-                  <br />
-                  <b className='card-heading'>Real-Time Weather Data:</b> Integrated with a weather API ( from RapidAPI) to fetch real-time weather information, including temperature, humidity, wind speed, and conditions, allowing users to stay updated with accurate weather forecasts.
-                  <br />
-                  
-                  <b className='card-heading'>Detailed Weather Display:</b> Provided detailed weather information, including current conditions, hourly and daily forecasts, and extended weather data, ensuring comprehensive weather insights.
-                  <br />
-                  <b className='card-heading'>Dynamic Weather Icons:</b> Utilized weather icons to visually represent different weather conditions, enhancing the user experience and making it easy to interpret weather data at a glance.
-                  <br />
-                  <b className='card-heading'>Responsive Design:</b> Leveraged Bootstrap to ensure the app's responsiveness on various devices and various screen sizes, allowing users to access weather data from all over the world to their desktop and mobile platforms.
-                  <br />
-                  <b className='card-heading'>Customization Options:</b> Enabled users to switch between temperature units (e.g., Celsius and Fahrenheit) and customize their preferred view of weather data.
-                  <br />
-                  <b className='card-heading'>Data Storage:</b> Utilized local storage to save user preferences, reducing the need for repeated location detection and improving the user experience.(i.e. it works when broswer allows it).
-                  <br /></p>
-              </div>
-            </div>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "inline-flex", alignItems: "center", gap: 5,
+        fontSize: 12, padding: "6px 13px", borderRadius: 100,
+        background: `${accent}18`,
+        border: `1px solid ${accent}40`,
+        color: accent,
+        textDecoration: "none", fontWeight: 500,
+        transition: "background 0.2s, transform 0.2s",
+      }}
+      onMouseEnter={e => { e.currentTarget.style.background = `${accent}30`; e.currentTarget.style.transform = "translateY(-2px)"; }}
+      onMouseLeave={e => { e.currentTarget.style.background = `${accent}18`; e.currentTarget.style.transform = "translateY(0)"; }}
+    >
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+      {label}
+    </a>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   PROJECT CARD
+───────────────────────────────────────────── */
+function ProjectCard({ project, index }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div className="col-md-6 mb-4">
+      <div
+        ref={ref}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          height: "100%",
+          background: "#111118",
+          border: `1px solid ${hovered ? project.accent + "55" : "rgba(255,255,255,0.08)"}`,
+          borderRadius: 20,
+          padding: "26px 24px",
+          position: "relative",
+          overflow: "hidden",
+          opacity:   visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(28px)",
+          transition: `opacity 0.6s ${index * 0.12}s ease,
+                       transform 0.6s ${index * 0.12}s ease,
+                       border-color 0.3s, box-shadow 0.35s`,
+          boxShadow: hovered ? `0 20px 50px ${project.glow}` : "none",
+          cursor: "default",
+        }}
+      >
+        {/* corner glow */}
+        <div style={{
+          position: "absolute", top: -60, right: -60,
+          width: 180, height: 180, borderRadius: "50%",
+          background: project.glow, filter: "blur(45px)",
+          opacity: hovered ? 1 : 0, transition: "opacity 0.4s",
+          pointerEvents: "none",
+        }} />
+
+        {/* ── HEADER ── */}
+        <div style={{ display: "flex", alignItems: "flex-start", gap: 12, marginBottom: 6 }}>
+          <div style={{
+            width: 42, height: 42, borderRadius: 12, flexShrink: 0,
+            background: `${project.accent}18`,
+            border: `1px solid ${project.accent}35`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            color: project.accent,
+            transform: hovered ? "rotate(-6deg) scale(1.1)" : "rotate(0) scale(1)",
+            transition: "transform 0.35s cubic-bezier(.34,1.56,.64,1)",
+            marginTop: 2,
+          }}>
+            {project.icon}
           </div>
-          <div className="col-sm-6">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-heading">Google Clone</h5>
-                <p className="card-text"><b className='card-heading'>
-                  Description:</b><br />
 
-                  Developed a Google Clone web application using React, JavaScript, and CSS to replicate the core functionalities and user interface of the Google search engine. This project served as a hands-on exploration of modern web development techniques and allowed for the practical application of front-end technologies. This project resembles Google.
-                  <br />
-                  <a href="https://web3google.netlify.app/" className="m-3 btn btn-success">Go to Project</a>
-                <a href="https://github.com/VarunSharma3520/GoogleClone" className="mx-2 btn btn-light"><svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" className="octicon octicon-mark-github">
-                  <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-                </svg> Go to GitHuB</a>
-                  <br /><br /><b className='card-heading'>Key Achievements:</b><br /><b className='card-heading'>User Interface Design:</b>Designed and implemented a responsive and user-friendly UI that closely mimics the Google search interface, ensuring a seamless user experience.
-                  <br />
-                  <b className='card-heading'>Search Functionality:</b> Integrated real-time search functionality that enables users to perform Google-like searches, including predictive text suggestions and dynamic search results.
-                  <br />
-                  <b className='card-heading'>Google Custom Search API:</b> Leveraged the Google Custom Search JSON API to fetch and display search results, demonstrating proficiency in working with external APIs.
-
-                  <br /><b className='card-heading'>CSS Styling:</b> Customized CSS to match Google's signature design, emphasizing attention to detail and precision in replicating the search engine's aesthetics.
-
-                  <br /><b className='card-heading'>State Management:</b> Utilized React's state management to efficiently handle user interactions, maintain search history, and dynamically update the UI.
-
-                  <br /><b className='card-heading'>Deployment:</b> Deployed the application Netlify showcasing proficiency in deploying React projects for production use.
-
-                  <br /><b className='card-heading'>Responsive Design:</b> Ensured the website's responsiveness, making it accessible and visually appealing on a variety of screen sizes and devices.</p>
-              </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+              <span style={{
+                fontFamily: "'Syne', sans-serif",
+                fontSize: 16, fontWeight: 700,
+                color: "#f0eeff", letterSpacing: "-0.01em",
+              }}>
+                {project.title}
+              </span>
+              <span style={{
+                fontSize: 10, padding: "3px 8px", borderRadius: 100,
+                background: `${project.accent}22`,
+                border: `1px solid ${project.accent}40`,
+                color: project.accent, fontWeight: 500,
+              }}>
+                {project.tag}
+              </span>
+            </div>
+            <div style={{ fontSize: 13, color: "#7a78a0", marginTop: 2 }}>
+              {project.subtitle}
             </div>
           </div>
         </div>
+
+        {/* accent divider */}
+        <div style={{
+          height: 1,
+          background: `linear-gradient(90deg, ${project.accent}60, transparent)`,
+          margin: "16px 0", borderRadius: 1,
+        }} />
+
+        {/* description */}
+        <p style={{
+          fontSize: 13, color: "#9997bb", lineHeight: 1.7,
+          marginBottom: 16,
+        }}>
+          {project.description}
+        </p>
+
+        {/* achievements */}
+        <div style={{ marginBottom: 18 }}>
+          {project.achievements.map((a, i) => (
+            <div key={i} style={{
+              display: "flex", gap: 9, marginBottom: 8, alignItems: "flex-start",
+            }}>
+              <span style={{
+                flexShrink: 0, marginTop: 5,
+                width: 5, height: 5, borderRadius: "50%",
+                background: project.accent,
+                boxShadow: `0 0 6px ${project.accent}`,
+                display: "inline-block",
+              }} />
+              <span style={{ fontSize: 13, color: "#c9c7e8", lineHeight: 1.65 }}>{a}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* stack pills */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 18 }}>
+          {project.stack.map((s) => (
+            <span key={s} style={{
+              fontSize: 11, padding: "4px 10px", borderRadius: 100,
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#c9c7e8",
+            }}>
+              {s}
+            </span>
+          ))}
+        </div>
+
+        {/* link buttons */}
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          {project.links.map((lnk) => (
+            <LinkBtn key={lnk.href} href={lnk.href} label={lnk.label} accent={project.accent} />
+          ))}
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default project
+/* ─────────────────────────────────────────────
+   PAGE
+───────────────────────────────────────────── */
+const Project = () => {
+  return (
+    <div className="Project">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+        @keyframes projShimmer {
+          0%   { background-position: -200% center; }
+          100% { background-position:  200% center; }
+        }
+        .proj-banner.card {
+          background: #111118 !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 20px !important;
+        }
+        .proj-banner .card-title {
+          font-family: 'Syne', sans-serif !important;
+          font-weight: 800 !important;
+          letter-spacing: -0.03em !important;
+          background: linear-gradient(90deg, #7C6FFF, #38BDF8, #34D399, #FBBF24);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: projShimmer 4s linear infinite;
+        }
+      `}</style>
+
+      <Navbar />
+
+      {/* banner — identical structure to Skills & Experience pages */}
+      <div className="proj-banner banner-card card my-5 pt-3 container">
+        <div className="card-body">
+          <h1 className="card-title fs-1 text-center">Projects</h1>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="row">
+          {PROJECTS.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Project;
